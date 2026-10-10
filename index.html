@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>云巅之战 · 倒计时</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;background:#080f1b;color:#e9eff7}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 20% 30%,#162d49,transparent 65%),#080f1b}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid #99ddff;outline-offset:4px}button:disabled{opacity:.38;cursor:not-allowed}.workspace{min-height:100svh;display:grid;grid-template-columns:auto 340px;justify-content:center;align-items:center;gap:clamp(24px,5vw,80px);padding:28px}.poster{position:relative;width:min(46vw,calc((100svh - 56px)*875/1798));aspect-ratio:875/1798;container-type:inline-size;box-shadow:0 20px 80px #0008;overflow:hidden;background:#00ff00}.poster>img{width:100%;height:100%;display:block}.countdown{position:absolute;top:6.6%;width:100%;text-align:center;color:#fff0bb;filter:drop-shadow(0 2px 3px #092440)}.eyebrow{font-size:2.2cqw;letter-spacing:.42em;color:#d4f5ff;text-shadow:0 1px 4px #071a30;margin:0 0 3cqw}.title{font-size:4.2cqw;letter-spacing:.16em;margin:0;font-weight:700;text-shadow:0 2px 3px #092744,0 0 16px #163e62}.ornament{display:flex;align-items:center;justify-content:center;gap:2.5cqw;margin:3.8cqw auto 1cqw;color:#d8efff;font-size:1.6cqw}.ornament:before,.ornament:after{content:"";width:19cqw;height:1px;background:linear-gradient(90deg,transparent,#e9d39a)}.ornament:after{transform:rotate(180deg)}.digits{display:block;font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:18.8cqw;line-height:1;letter-spacing:-.035em;font-variant-numeric:tabular-nums;background:linear-gradient(#fffdeb 12%,#ffe9a9 40%,#d59a37 70%,#fff0bc 90%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:.16cqw #725228;filter:drop-shadow(0 .65cqw 0 #193653) drop-shadow(0 0 2cqw #76baff70)}.caption{font-size:2.3cqw;letter-spacing:.4em;color:#e6f6ff;margin:1.8cqw 0;text-shadow:0 1px 4px #113153}.panel{width:100%;max-width:340px}.brand{font-size:11px;color:#8fb4d5;letter-spacing:.3em;margin-bottom:18px}h1{font-size:29px;font-weight:600;letter-spacing:.06em;margin:0 0 12px}.intro{font-size:13px;color:#95a7bb;line-height:1.9;margin-bottom:30px}.rule{height:1px;background:linear-gradient(90deg,#9e7b3f80,transparent);margin:26px 0}.status{display:flex;align-items:center;gap:9px;font-size:12px;color:#b9cfdf;margin-bottom:24px}.dot{height:6px;width:6px;border-radius:100%;background:#92bbd6;box-shadow:0 0 10px #92bbd650}.running .dot{background:#ebc773}.fields{display:flex;align-items:flex-end;gap:13px}.field{flex:1}label{display:block;color:#a5b5c7;font-size:12px;margin-bottom:9px}input{width:100%;min-width:0;border:1px solid #314155;border-radius:6px;background:#111d2d;color:#fff1c5;padding:12px;font-size:25px;font-variant-numeric:tabular-nums}input:disabled{opacity:.5}.colon{padding-bottom:15px;color:#68829b}.buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}button{min-height:44px;border:1px solid #34475e;border-radius:6px;background:#152336;color:#c8d8e8;font-size:13px}#start{grid-column:1/-1;background:linear-gradient(120deg,#efd89e,#bd8d44);border-color:#e0bd73;color:#252119;font-weight:700;letter-spacing:.14em}button:hover:not(:disabled){filter:brightness(1.12)}.error{min-height:18px;font-size:12px;color:#ffb7a6;margin-top:9px}.extras{display:flex;gap:10px}.extras button{flex:1;background:transparent;font-size:12px}.hint{font-size:11px;color:#71869e;line-height:1.9;margin-top:20px}.return{display:none;position:fixed;right:18px;bottom:18px;padding:0 18px;background:#102037de;z-index:10}.presentation .workspace{padding:0;display:flex;min-height:100svh;gap:0}.presentation .poster{width:min(100vw,calc(100svh*875/1798));box-shadow:none}.presentation .panel{display:none}.presentation .return{display:block;opacity:.35}.presentation .return:hover,.presentation .return:focus{opacity:1}@media(max-width:650px){.workspace{display:flex;flex-direction:column;padding:0 0 30px;gap:28px}.poster{width:100%;max-width:500px}.panel{padding:0 22px;max-width:500px}.intro{margin-bottom:20px}h1{font-size:25px}.presentation .poster{max-width:none}}@media(prefers-reduced-motion:no-preference){button{transition:filter .15s}}
+.presentation{background:#00ff00}.digits{margin-top:1cqw}
+
+/* 1080 × 1080 canvas; centered 900 × 900 content area. */
+.workspace{grid-template-columns:minmax(0,1080px) 340px}
+.poster{width:1080px;max-width:100%;aspect-ratio:1/1}
+.countdown{top:50%;left:50%;width:83.333333%;height:83.333333%;transform:translate(-50%,-50%);display:flex;flex-direction:column;justify-content:center;align-items:center}
+.title{font-size:6.3cqw;white-space:nowrap;letter-spacing:.08em}
+.digits{font-size:25cqw;line-height:1;margin-top:1.5cqw}
+.presentation .poster{width:min(1080px,100vw,100svh);max-width:none}
+@media(max-width:650px){.poster{width:100%;max-width:1080px}.presentation .poster{width:min(1080px,100vw,100svh)}}
+
+/* Keep descending numeral outlines inside the gradient paint area. */
+.digits{line-height:1.35;padding:.12em .08em .18em;margin-top:-.10em;margin-bottom:-.18em;flex-shrink:0;overflow:visible}
+.title{position:relative;z-index:1;line-height:1.4}
+
+/* Matching gold treatment, with safe glyph padding and a tighter visual gap. */
+.title{background:linear-gradient(#fffdeb 12%,#ffe9a9 40%,#d59a37 70%,#fff0bc 90%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:.09cqw #725228;text-shadow:none;filter:drop-shadow(0 .35cqw 0 #193653) drop-shadow(0 0 1cqw #76baff70);padding:.08em .06em;flex-shrink:0}
+.digits{margin-top:-.22em}
+</style>
+</head>
+<body>
+<main class="workspace">
+<section class="poster" aria-label="绿幕倒计时">
+
+<div class="countdown"><h2 class="title">距离巅峰之战开启</h2><output class="digits" id="timer" role="timer" aria-label="剩余时间" aria-live="off">30:00</output></div>
+</section>
+<section class="panel" aria-label="倒计时控制面板"><div class="brand">云巅王城 / COUNTDOWN</div><h1>为巅峰之战，计时。</h1><p class="intro">云端集结，冰火交锋。<br>设定开战时间，让每一秒都充满期待。</p><div class="rule"></div><div class="status" role="status"><span class="dot"></span><span id="status">准备就绪</span></div>
+<div class="fields"><div class="field"><label for="minutes">初始分钟 · 0–999</label><input id="minutes" type="number" min="0" max="999" step="1" inputmode="numeric" value="30"></div><span class="colon">:</span><div class="field"><label for="seconds">初始秒数 · 0–59</label><input id="seconds" type="number" min="0" max="59" step="1" inputmode="numeric" value="0"></div></div>
+<div class="error" id="error" role="alert"></div><div class="buttons"><button id="start">开始倒计时</button><button id="pause" disabled>暂停</button><button id="reset">重置</button></div><div class="rule"></div><div class="extras"><button id="present">纯海报展示</button><button id="fullscreen">全屏显示</button></div><p class="hint">修改时间后点击开始。计时中如需更改，请先重置。<br>切换标签页后仍按实际经过时间计时。<br>展示模式按 Esc 或点击右下角按钮返回。</p></section>
+</main><button class="return" id="return">返回控制面板</button>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id),min=$('minutes'),sec=$('seconds'),timer=$('timer'),status=$('status'),pause=$('pause'),start=$('start');
+let state='idle',initial=1800000,remaining=initial,deadline=0;
+function read(){const m=Number(min.value),s=Number(sec.value);if(min.value.trim()===''||sec.value.trim()===''||!Number.isInteger(m)||!Number.isInteger(s)||m<0||m>999||s<0||s>59){$('error').textContent='请输入整数：分钟 0–999，秒数 0–59。';return null} $('error').textContent='';return (m*60+s)*1000}
+function draw(){const n=Math.ceil(remaining/1000);timer.textContent=String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0');timer.style.fontSize=n>=6000?'22cqw':'';document.title=timer.textContent+' · 云巅之战';}
+function controls(){const active=state==='running'||state==='paused';min.disabled=sec.disabled=active;start.disabled=active;pause.disabled=!active;pause.textContent=state==='paused'?'继续':'暂停';status.textContent={idle:'准备就绪',running:'倒计时进行中',paused:'已暂停',finished:'倒计时结束 · 巅峰之战开启'}[state];document.body.classList.toggle('running',state==='running');}
+function tick(){if(state!=='running')return;remaining=Math.max(0,deadline-Date.now());if(remaining===0){state='finished';controls()}draw()}
+start.onclick=()=>{const v=read();if(v===null)return;if(v===0){$('error').textContent='请设置大于 00:00 的时间。';return}initial=remaining=v;deadline=Date.now()+remaining;state='running';draw();controls()};
+pause.onclick=()=>{if(state==='running'){tick();if(state==='finished')return;state='paused'}else if(state==='paused'){deadline=Date.now()+remaining;state='running'}controls()};
+$('reset').onclick=()=>{remaining=initial;min.value=Math.floor(initial/60000);sec.value=(initial/1000)%60;state='idle';$('error').textContent='';draw();controls()};
+function edit(){if(state==='running'||state==='paused')return;const v=read();if(v!==null){initial=remaining=v;state='idle';draw();controls()}}
+min.addEventListener('input',edit);sec.addEventListener('input',edit);
+function present(on){document.body.classList.toggle('presentation',on)}$('present').onclick=()=>present(true);$('return').onclick=()=>{present(false);if(document.fullscreenElement)document.exitFullscreen().catch(()=>{})};
+$('fullscreen').onclick=async()=>{try{if(!document.documentElement.requestFullscreen)throw Error();await document.documentElement.requestFullscreen();present(true)}catch(e){$('error').textContent='当前浏览器不支持全屏，已切换为纯海报展示。';present(true)}};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')present(false)});document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement)present(false)});
+document.addEventListener('visibilitychange',tick);window.addEventListener('pageshow',tick);setInterval(tick,100);draw();controls();
+})();
+</script>
+</body></html>
